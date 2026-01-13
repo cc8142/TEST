@@ -1,2 +1,2 @@
+# Deprecated: Playwright is included in requirements.txt.
 -r requirements.txt
-playwright>=1.40,<2

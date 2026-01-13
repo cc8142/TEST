@@ -55,11 +55,11 @@ pipeline {
       steps {
         script {
           if (isUnix()) {
-            sh 'python -m pip install -r requirements-ui.txt -c requirements.lock'
+            sh 'python -m pip install -r requirements.txt -c requirements.lock'
             sh 'python -m playwright install'
             sh 'python tests/run_all.py --suite ui --env local'
           } else {
-            bat 'python -m pip install -r requirements-ui.txt -c requirements.lock'
+            bat 'python -m pip install -r requirements.txt -c requirements.lock'
             bat 'python -m playwright install'
             bat 'python tests\\run_all.py --suite ui --env local'
           }

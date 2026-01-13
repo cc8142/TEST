@@ -46,7 +46,7 @@ ui_suite:
       - .cache/pip
       - /ms-playwright
   script:
-    - python -m pip install -r requirements-ui.txt -c requirements.lock
+    - python -m pip install -r requirements.txt -c requirements.lock
     - python tests/run_all.py --suite ui --env local
   rules:
     - if: '$RUN_UI == "true"'

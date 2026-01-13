@@ -13,7 +13,7 @@
 - `tests/conftest.py`：fixture、环境引导、本地服务启动
 - `config/environments.json`：环境画像
 - `reports/`：summary、junit、artifacts
-- `requirements-ui.txt`：UI 真浏览器依赖
+- `requirements.txt`：基础依赖（含 Playwright）
 
 ## 分层结构
 - 驱动层：HttpClient / Playwright driver
