@@ -18,6 +18,12 @@
 - CI/CD：Jenkins、GitLab CI
 - 其他：数据工厂、质量度量、稳定性治理
 
+## 克隆与环境准备
+- 克隆：`git clone https://github.com/cc8142/TEST.git`
+- 创建虚拟环境：`python -m venv venv`
+- Windows 激活：`venv\Scripts\activate`
+- macOS/Linux 激活：`source venv/bin/activate`
+
 ## 快速运行（离线）
 - 安装基础依赖：`pip install -r requirements.txt`
 - 冒烟门禁：`python tests/run_all.py --suite smoke --env local`

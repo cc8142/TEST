@@ -14,6 +14,12 @@
 - Allure, JUnit XML, custom HTML summary
 - Jenkins, GitLab CI, data factory, quality metrics
 
+## Clone & Setup
+- Clone: `git clone https://github.com/cc8142/TEST.git`
+- Create venv: `python -m venv venv`
+- Activate (Windows): `venv\Scripts\activate`
+- Activate (macOS/Linux): `source venv/bin/activate`
+
 ## Quick Start (offline)
 - Install base deps: `pip install -r requirements.txt`
 - Smoke (fast gate): `python tests/run_all.py --suite smoke --env local`
