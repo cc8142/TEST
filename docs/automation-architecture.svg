@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <style>
+      .title { font: 700 28px Arial, sans-serif; fill: #111; }
+      .label { font: 600 16px Arial, sans-serif; fill: #111; }
+      .text { font: 14px Arial, sans-serif; fill: #111; }
+      .box { fill: #f6f6f6; stroke: #111; stroke-width: 2; rx: 12; }
+      .accent { fill: #ffeecf; stroke: #111; stroke-width: 2; rx: 12; }
+      .line { stroke: #111; stroke-width: 2; }
+      .muted { fill: #555; font: 12px Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="20" y="20" width="1160" height="680" fill="#fff" stroke="#111" stroke-width="2" rx="16"/>
+  <text x="50" y="70" class="title">Automation Architecture Overview</text>
+
+  <!-- Inputs -->
+  <rect x="70" y="110" width="300" height="140" class="box"/>
+  <text x="90" y="145" class="label">Inputs</text>
+  <text x="90" y="175" class="text">- Test Data Factory</text>
+  <text x="90" y="200" class="text">- Config & Env</text>
+  <text x="90" y="225" class="text">- Secrets & Tokens</text>
+
+  <!-- Orchestration -->
+  <rect x="450" y="110" width="300" height="140" class="accent"/>
+  <text x="470" y="145" class="label">Orchestration</text>
+  <text x="470" y="175" class="text">- Runner (unittest)</text>
+  <text x="470" y="200" class="text">- Parallel Strategy</text>
+  <text x="470" y="225" class="text">- Retry Policy</text>
+
+  <!-- Execution -->
+  <rect x="830" y="110" width="300" height="140" class="box"/>
+  <text x="850" y="145" class="label">Execution</text>
+  <text x="850" y="175" class="text">- API Tests</text>
+  <text x="850" y="200" class="text">- UI Tests</text>
+  <text x="850" y="225" class="text">- Playwright UI</text>
+
+  <!-- Local Demo Server -->
+  <rect x="70" y="320" width="300" height="140" class="box"/>
+  <text x="90" y="355" class="label">Local Demo Server</text>
+  <text x="90" y="385" class="text">- API Endpoints</text>
+  <text x="90" y="410" class="text">- Static Web UI</text>
+  <text x="90" y="435" class="text">- No Network Required</text>
+
+  <!-- Reporting -->
+  <rect x="450" y="320" width="300" height="140" class="accent"/>
+  <text x="470" y="355" class="label">Reporting</text>
+  <text x="470" y="385" class="text">- summary.json</text>
+  <text x="470" y="410" class="text">- summary.html</text>
+  <text x="470" y="435" class="text">- CI Artifact</text>
+
+  <!-- CI/CD -->
+  <rect x="830" y="320" width="300" height="140" class="box"/>
+  <text x="850" y="355" class="label">CI/CD</text>
+  <text x="850" y="385" class="text">- PR/Release Triggers</text>
+  <text x="850" y="410" class="text">- Notifications</text>
+  <text x="850" y="435" class="text">- Quality Gate</text>
+
+  <!-- Metrics -->
+  <rect x="70" y="520" width="300" height="140" class="box"/>
+  <text x="90" y="555" class="label">Metrics</text>
+  <text x="90" y="585" class="text">- Coverage</text>
+  <text x="90" y="610" class="text">- Pass Rate</text>
+  <text x="90" y="635" class="text">- Flaky Rate</text>
+
+  <!-- Feedback Loop -->
+  <rect x="450" y="520" width="300" height="140" class="accent"/>
+  <text x="470" y="555" class="label">Feedback Loop</text>
+  <text x="470" y="585" class="text">- Root Cause</text>
+  <text x="470" y="610" class="text">- Test Optimization</text>
+  <text x="470" y="635" class="text">- Stability Improvements</text>
+
+  <!-- Connectors -->
+  <line x1="370" y1="180" x2="450" y2="180" class="line"/>
+  <line x1="750" y1="180" x2="830" y2="180" class="line"/>
+  <line x1="220" y1="250" x2="220" y2="320" class="line"/>
+  <line x1="600" y1="250" x2="600" y2="320" class="line"/>
+  <line x1="980" y1="250" x2="980" y2="320" class="line"/>
+  <line x1="220" y1="460" x2="220" y2="520" class="line"/>
+  <line x1="600" y1="460" x2="600" y2="520" class="line"/>
+
+  <text x="50" y="690" class="muted">Generated for portfolio demo. Update labels to match your real systems.</text>
+</svg>

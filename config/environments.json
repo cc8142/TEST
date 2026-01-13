@@ -1,0 +1,17 @@
+{
+  "local": {
+    "base_url": "",
+    "timeout_sec": 5,
+    "verify_ssl": true
+  },
+  "test": {
+    "base_url": "https://test.example.internal",
+    "timeout_sec": 8,
+    "verify_ssl": true
+  },
+  "staging": {
+    "base_url": "https://staging.example.internal",
+    "timeout_sec": 8,
+    "verify_ssl": true
+  }
+}

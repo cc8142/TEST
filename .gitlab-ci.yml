@@ -1,0 +1,63 @@
+stages:
+  - quality
+  - smoke
+  - regression
+
+image: python:3.11-slim
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PYTHONUNBUFFERED: "1"
+
+cache:
+  key: pip-cache
+  paths:
+    - .cache/pip
+
+quality:
+  stage: quality
+  script:
+    - python -m pip install -r requirements.txt -c requirements.lock
+    - python -m pip install -r requirements-dev.txt -c requirements.lock
+    - python -m ruff check .
+    - python -m ruff format --check .
+    - python -m mypy framework tests
+    - python -m bandit -r framework tests
+
+api_smoke:
+  stage: smoke
+  script:
+    - python -m pip install -r requirements.txt -c requirements.lock
+    - python tests/run_all.py --suite smoke --env local
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - reports/
+    reports:
+      junit: reports/junit.xml
+
+ui_suite:
+  stage: regression
+  image: mcr.microsoft.com/playwright/python:v1.57.0-jammy
+  cache:
+    key: pip-playwright
+    paths:
+      - .cache/pip
+      - /ms-playwright
+  script:
+    - python -m pip install -r requirements-ui.txt -c requirements.lock
+    - python tests/run_all.py --suite ui --env local
+  rules:
+    - if: '$RUN_UI == "true"'
+    - changes:
+        - tests/ui/**/*
+        - demo_app/web/**/*
+        - requirements-ui.txt
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - reports/
+    reports:
+      junit: reports/junit.xml
