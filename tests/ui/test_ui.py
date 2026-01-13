@@ -26,7 +26,7 @@ def _get_html(client):
     return resp.text
 
 
-@pytest.mark.ui
+@pytest.mark.ui_contract
 @pytest.mark.smoke
 @allure.epic("Storefront")
 @allure.feature("Home Page")
@@ -46,7 +46,7 @@ def test_hero_title_present(api_client):
         assert parser.title_text == "Demo Shop"
 
 
-@pytest.mark.ui
+@pytest.mark.ui_contract
 @allure.epic("Storefront")
 @allure.feature("Home Page")
 @allure.story("CTA presence")
@@ -63,7 +63,7 @@ def test_cta_button_present(api_client):
         assert "cta-button" in parser.data_tests
 
 
-@pytest.mark.ui
+@pytest.mark.ui_contract
 @allure.epic("Storefront")
 @allure.feature("Home Page")
 @allure.story("Feature list")

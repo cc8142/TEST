@@ -18,6 +18,7 @@ from tests.reporting import build_summary, write_reports
 SUITE_MARKERS = {
     "api": "api",
     "ui": "ui",
+    "ui_contract": "ui_contract",
     "smoke": "smoke",
     "e2e": "e2e",
 }
@@ -29,7 +30,11 @@ def _plugin_available(module_name):
 
 def main():
     parser = argparse.ArgumentParser(description="Run automation suites with reports.")
-    parser.add_argument("--suite", choices=["all", "api", "ui", "smoke", "e2e"], default="all")
+    parser.add_argument(
+        "--suite",
+        choices=["all", "api", "ui", "ui_contract", "smoke", "e2e"],
+        default="all",
+    )
     parser.add_argument("--env", default=os.getenv("ENV", "local"))
     parser.add_argument("--base-url", default=os.getenv("BASE_URL", ""))
     parser.add_argument("--report-dir", default=str(ROOT / "reports"))

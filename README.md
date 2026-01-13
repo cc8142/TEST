@@ -24,8 +24,8 @@
 - Install base deps: `pip install -r requirements.txt`
 - Smoke (fast gate): `python tests/run_all.py --suite smoke --env local`
 - API regression: `python tests/run_all.py --suite api --env local`
-- UI contract (no browser): `python tests/run_all.py --suite ui --env local`
-- Browser UI (optional): `pip install -r requirements-ui.txt` then `python -m playwright install`
+- UI contract (no browser): `python tests/run_all.py --suite ui_contract --env local`
+- Browser UI (Playwright): `pip install -r requirements-ui.txt` then `python -m playwright install`
 - Run browser UI: `python tests/run_all.py --suite ui --env local --headed`
 - Playwright trace on failure: `PW_TRACE=1`
 - Parallel + reruns: `python tests/run_all.py --suite api --workers 2 --reruns 2`
@@ -67,7 +67,8 @@ Outputs: `reports/summary.html`, `reports/summary.json`, `reports/junit.xml`, `r
 ## Suite Map
 - `smoke`: PR gating, fast checks
 - `api`: API regression
-- `ui`: UI contract and optional real browser
+- `ui`: Playwright UI regression (browser)
+- `ui_contract`: HTML contract checks (no browser)
 - `e2e`: end-to-end flows
 
 ## Stability Controls
@@ -90,6 +91,6 @@ Outputs: `reports/summary.html`, `reports/summary.json`, `reports/junit.xml`, `r
 4. `docs/case-study.md` for project stories
 
 ## Notes
-- Playwright is optional; browser tests auto-skip if not installed.
+- Playwright is optional; browser tests auto-skip if not installed. Use `ui_contract` for no-browser checks.
 - Local demo server is used by default; set `BASE_URL` for remote environments.
 - The runner disables pytest auto plugin loading by default; set `PYTEST_DISABLE_PLUGIN_AUTOLOAD=0` to re-enable.

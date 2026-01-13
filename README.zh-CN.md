@@ -28,8 +28,8 @@
 - 安装基础依赖：`pip install -r requirements.txt`
 - 冒烟门禁：`python tests/run_all.py --suite smoke --env local`
 - API 回归：`python tests/run_all.py --suite api --env local`
-- UI 契约（无浏览器）：`python tests/run_all.py --suite ui --env local`
-- 真浏览器（可选）：`pip install -r requirements-ui.txt` 后执行 `python -m playwright install`
+- UI 契约（无浏览器）：`python tests/run_all.py --suite ui_contract --env local`
+- 真浏览器（Playwright）：`pip install -r requirements-ui.txt` 后执行 `python -m playwright install`
 - 运行真浏览器：`python tests/run_all.py --suite ui --env local --headed`
 - Playwright 失败 trace：`PW_TRACE=1`
 - 并行 + 复跑：`python tests/run_all.py --suite api --workers 2 --reruns 2`
@@ -72,7 +72,8 @@
 ## 套件说明
 - `smoke`：PR 门禁，快速回归
 - `api`：接口回归
-- `ui`：UI 契约 + 可选真浏览器
+- `ui`：Playwright UI 回归（真浏览器）
+- `ui_contract`：HTML 契约检查（无浏览器）
 - `e2e`：端到端流程
 
 ## 稳定性控制
@@ -94,6 +95,6 @@
 4. `docs/case-study.md` 了解项目案例
 
 ## 备注
-- Playwright 为可选依赖，未安装时浏览器用例自动跳过
+- Playwright 为可选依赖，未安装时浏览器用例自动跳过，可用 `ui_contract` 跑无浏览器检查
 - 默认使用本地 Demo Server，远程环境可设置 `BASE_URL`
 - 默认禁用 pytest 自动插件加载，可通过 `PYTEST_DISABLE_PLUGIN_AUTOLOAD=0` 重新启用
